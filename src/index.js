@@ -21,47 +21,37 @@ class App extends React.Component {
           data={data}
           columns={[
             {
-              Header: "Name",
-              columns: [
-                {
-                  Header: "First Name",
-                  accessor: "firstName"
-                },
-                {
-                  Header: "Last Name",
-                  id: "lastName",
-                  accessor: d => d.lastName
-                }
-              ]
+              Header: "Action Type",
+              accessor: "actionType"
             },
-            {
-              Header: "Info",
-              columns: [
-                {
-                  Header: "Age",
-                  accessor: "age"
-                },
-                {
-                  Header: "Status",
-                  accessor: "status"
-                }
-              ]
-            },
-            {
-              Header: 'Stats',
-              columns: [
-                {
-                  Header: "Visits",
-                  accessor: "visits"
-                }
-              ]
-            }
+              {
+                Header: "Bid / Ask",
+                accessor: "bidOrAsk"
+              },
+              {
+                Header: "TUSD Filled",
+                accessor: "amountFilled"
+              },
+              {
+                Header: "TUSD Amount",
+                accessor: "buySellAmount"
+              },
+              {
+                Header: "Actual Rate",
+                accessor: "status"
+              },            
+              {
+                Header: "Est. Total BTC",
+                accessor: "estimatedTotal"
+              },
+              {
+                Header: "Status",
+                accessor: "status"
+              }
           ]}
-          defaultPageSize={10}
           className="-striped -highlight"
         />
         <br />
-        <Tips />
         <Logo />
       </div>
     );
