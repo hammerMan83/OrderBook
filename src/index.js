@@ -38,7 +38,7 @@ class App extends React.Component {
               },
               {
                 Header: "Actual Rate",
-                accessor: "status"
+                accessor: "actualRate"
               },            
               {
                 Header: "Est. Total BTC",
@@ -49,6 +49,7 @@ class App extends React.Component {
                 accessor: "status"
               }
           ]}
+          defaultPageSize={5}
           className="-striped -highlight"
         />
         <br />

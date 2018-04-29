@@ -1,5 +1,5 @@
 import React from "react";
-import namor from "namor";
+//import namor from "namor";
 import "./index.css";
 
 function getRandomInt(max) {
@@ -24,7 +24,6 @@ const getStatus = () => {
       return "Pending";
     case 1:
       return "Open";
-      break;
     case 2:
       return "Done";
   };
@@ -34,19 +33,20 @@ const newOrder = () => {
   const bidOrAsk = getRandomBetween(0.0001, 0.0002).toFixed(8);
   const buySellAmount = getRandomInt(100).toFixed(8);
   const estimatedTotal = (bidOrAsk * buySellAmount).toFixed(8);
+  const actualRate = (getRandomBetween(0.9, 1) * bidOrAsk).toFixed(8);
 
   return {
     actionType: getRandomInt(2) === 1 ? "Limit Sell" : "Limit Buy", 
     bidOrAsk: bidOrAsk,
     amountFilled: Math.random().toFixed(8),
     buySellAmount: buySellAmount,
-    visits: Math.floor(Math.random() * 100),
-    progress: Math.floor(Math.random() * 100),
-    estimatedTotal: estimatedTotal
+    actualRate: actualRate,
+    estimatedTotal: estimatedTotal,
+    status: getStatus()
   };
 };
 
-export function makeData(len = 5) {
+export function makeData(len = 10) {
   return range(len).map(a => {
     let x = {
       ...newOrder()
